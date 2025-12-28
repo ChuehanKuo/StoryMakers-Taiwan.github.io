@@ -1,0 +1,108 @@
+{
+  "posts": [
+    {
+      "id": "shilin-market-memories",
+      "title": "Memories of Shilin Night Market",
+      "titleZh": "士林夜市回憶",
+      "excerpt": "A journey through the vibrant history of one of Taipei's most famous night markets, told through the voices of local vendors and longtime residents.",
+      "excerptZh": "透過在地攤商與老居民的聲音，探索台北最著名夜市之一的豐富歷史。",
+      "date": "2025-01-15",
+      "status": "approved",
+      "tags": ["Shilin", "Night Market", "Community", "History"],
+      "coverImage": "assets/images/shilinimage.jpg",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The Shilin Night Market has been a cornerstone of local culture for generations. Walking through its narrow alleys, you can feel the pulse of history mixed with the energy of modern Taipei."
+        },
+        {
+          "type": "paragraph",
+          "text": "We spoke with several long-time vendors who have been serving the community for over 40 years. Their stories reveal not just the evolution of the market, but the changing face of Shilin itself."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Early Days"
+        },
+        {
+          "type": "paragraph",
+          "text": "In the 1960s, Shilin Night Market was primarily a local gathering place. Vendors remember when the area was quieter, with fewer tourists and more neighborhood regulars. 'Everyone knew everyone back then,' recalls Mrs. Chen, who has been selling stinky tofu for 45 years."
+        },
+        {
+          "type": "paragraph",
+          "text": "The market's transformation began in the 1980s as Taipei's economy boomed. More vendors set up shop, and the market expanded beyond its original boundaries. Today, it's a major tourist destination while still maintaining its local character."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Preserving Tradition"
+        },
+        {
+          "type": "paragraph",
+          "text": "Despite the changes, many vendors are committed to preserving traditional recipes and methods. This dedication to authenticity is what keeps the market's soul alive, connecting past and present through food and community."
+        }
+      ]
+    },
+    {
+      "id": "cixian-temple-stories",
+      "title": "Cixian Temple: A Gathering Place",
+      "titleZh": "慈諴宮：匯聚之所",
+      "excerpt": "Exploring the role of Cixian Temple as a spiritual and social center in Shilin, where multiple faiths and generations come together.",
+      "excerptZh": "探索慈諴宮作為士林精神與社交中心的作用，這裡匯聚了多種信仰與不同世代。",
+      "date": "2025-01-10",
+      "status": "approved",
+      "tags": ["Shilin", "Temple", "Religion", "Community"],
+      "coverImage": "assets/images/oldstreet.jpg",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cixian Temple stands as a testament to Shilin's rich spiritual heritage. Built over 200 years ago, it has witnessed the transformation of the district from a rural settlement to a bustling urban center."
+        },
+        {
+          "type": "paragraph",
+          "text": "What makes Cixian Temple unique is its role as a multi-religious gathering space. While primarily a Mazu temple, it has become a place where people of different faiths come to pray, reflect, and connect with their community."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "A Place for All"
+        },
+        {
+          "type": "paragraph",
+          "text": "The temple's architecture and open spaces invite not just worshippers, but also tourists, students, and local residents seeking a moment of peace in the busy district. On any given day, you'll see elderly locals performing traditional rituals alongside young people learning about their heritage."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Community Connections"
+        },
+        {
+          "type": "paragraph",
+          "text": "Beyond its religious significance, Cixian Temple serves as a community hub. Festivals and ceremonies bring neighbors together, reinforcing social bonds and preserving cultural traditions that might otherwise be lost in the rush of modern life."
+        },
+        {
+          "type": "paragraph",
+          "text": "Through our interviews with temple volunteers and frequent visitors, we've learned how this sacred space continues to adapt while honoring its historical roots—a perfect metaphor for Shilin itself."
+        }
+      ]
+    },
+    {
+      "id": "draft-post",
+      "title": "Draft Post (Should Not Appear)",
+      "titleZh": "草稿文章（不應顯示）",
+      "excerpt": "This post should not appear because it's not approved.",
+      "excerptZh": "這篇文章不應顯示，因為未獲批准。",
+      "date": "2025-01-05",
+      "status": "draft",
+      "tags": ["Test"],
+      "coverImage": "assets/images/oldstreet.jpg",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This is a draft post that should not be visible."
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Panel - StoryMakers Taiwan">
+    <title>Admin Panel | StoryMakers Taiwan</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+        
+        .admin-header {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pending-posts {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .post-item {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .post-item.approved {
+            border-left-color: #4caf50;
+        }
+        
+        .post-item.rejected {
+            border-left-color: #f44336;
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+        
+        .login-form {
+            max-width: 400px;
+            margin: var(--spacing-xl) auto;
+            background-color: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+        
+        .status-approved {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .status-rejected {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-en">StoryMakers <span class="brand-accent">Taiwan</span></span>
+                <span class="brand-zh">｜故事造城</span>
+            </a>
+            <nav class="header-tabs" aria-label="Primary">
+                <a class="tab-link" href="index.html">Home</a>
+                <a class="tab-link" href="about.html">About Us</a>
+                <a class="tab-link" href="projects.html">Projects</a>
+                <a class="tab-link" href="shilin.html">Shilin Story Chronicle</a>
+                <a class="tab-link" href="shilin-2hr.html">Guides</a>
+                <a class="tab-link" href="submit.html">Submit</a>
+                <a class="tab-link" href="contact.html">Contact</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+            <nav id="main-navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="shilin.html">Shilin Story Chronicle</a></li>
+                    <li><a href="shilin-2hr.html">Guides</a></li>
+                    <li><a href="submit.html">Submit</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Panel -->
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-container">
+                <h1>Admin Panel</h1>
+                <p class="hero-subtitle">Story Moderation</p>
+            </div>
+        </section>
+
+        <section id="admin-section">
+            <div class="admin-container">
+                <!-- Login Form (shown when not authenticated) -->
+                <div id="login-container" style="display: none;">
+                    <div class="login-form">
+                        <h2>Admin Login</h2>
+                        <div id="login-error" style="display: none; color: #d32f2f; margin-bottom: var(--spacing-sm);"></div>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="admin-email">Email</label>
+                                <input type="email" id="admin-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-password">Password</label>
+                                <input type="password" id="admin-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Admin Panel (shown when authenticated) -->
+                <div id="admin-panel" style="display: none;">
+                    <div class="admin-header">
+                        <h2>Pending Submissions</h2>
+                        <p>Review and approve or reject story submissions.</p>
+                        <button id="logout-btn" class="btn btn-outline" style="margin-top: var(--spacing-sm);">Logout</button>
+            </div>
+                    </div>
+
+                    <div id="error-message" style="display: none; background-color: #ffebee; border-left: 4px solid #d32f2f; padding: var(--spacing-md); border-radius: 4px; margin-bottom: var(--spacing-md);"></div>
+                    <div id="success-message" style="display: none; background-color: #e8f5e9; border-left: 4px solid #4caf50; padding: var(--spacing-md); border-radius: 4px; margin-bottom: var(--spacing-md);"></div>
+
+                    <div id="pending-posts" class="pending-posts">
+                        <p style="text-align: center; color: var(--color-text-light);">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StoryMakers Taiwan</h3>
+                    <p>Transforming local stories into cultural energy.</p>
+                    <p>故事造城 - 將在地故事轉化為文化能量</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="projects.html">Projects</a></p>
+                    <p><a href="shilin.html">Shilin Story Chronicle</a></p>
+                    <p><a href="stories.html">Stories</a></p>
+                    <p><a href="submit.html">Submit a Story</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Email: info@storymakers.tw</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">f</a>
+                        <a href="#" class="social-link" aria-label="Instagram">ig</a>
+                        <a href="#" class="social-link" aria-label="Twitter">t</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StoryMakers Taiwan (故事造城). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="scripts/supabaseClient.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/admin.js"></script>
+</body>
+</html>
+

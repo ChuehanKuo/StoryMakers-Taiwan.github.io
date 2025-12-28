@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /config.js
+Disallow: /scripts/
+Disallow: /supabase/
+
+# Sitemap location
+Sitemap: https://storymakers.tw/sitemap.xml
+
+# Crawl-delay (optional, adjust as needed)
+Crawl-delay: 1
+
